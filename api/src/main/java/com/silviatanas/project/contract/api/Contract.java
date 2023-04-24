@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Contract {
+    // branch test
     private int contractID;
     private Date startDate;
     private Date endDate;
