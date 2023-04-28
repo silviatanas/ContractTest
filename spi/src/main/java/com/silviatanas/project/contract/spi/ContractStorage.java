@@ -1,5 +1,7 @@
 package com.silviatanas.project.contract.spi;
 
+import com.silviatanas.project.contract.api.Contract;
+
 import java.util.List;
 
 /**
