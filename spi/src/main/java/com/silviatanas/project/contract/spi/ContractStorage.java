@@ -2,6 +2,10 @@ package com.silviatanas.project.contract.spi;
 
 import java.util.List;
 
+/**
+ * Interface for storing and retrieving contracts
+ */
+
 public interface ContractStorage {
     /**
      *
