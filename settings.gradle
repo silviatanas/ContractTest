@@ -1,3 +1,5 @@
 rootProject.name = 'ContractTest'
 include 'api'
+include 'spi'
+include 'impl'
 
