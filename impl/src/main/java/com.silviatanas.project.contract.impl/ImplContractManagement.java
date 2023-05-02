@@ -5,6 +5,9 @@ import com.silviatanas.project.contract.api.ContractManagement;
 
 import java.util.List;
 
+/**
+ * Implementation for Contract management methods
+ */
 public class ImplContractManagement implements ContractManagement {
     @Override
     public void addContract(int contractID) {
