@@ -8,9 +8,9 @@ import java.util.List;
 /**
  * Implementation for Contract management methods
  */
-public class ImplContractManagement implements ContractManagement {
+public class ContractManagementImpl implements ContractManagement {
     @Override
-    public void addContract(int contractID) {
+    public void addContract(Contract contract) {
 
     }
 
