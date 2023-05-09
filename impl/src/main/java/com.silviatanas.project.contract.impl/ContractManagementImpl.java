@@ -2,6 +2,7 @@ package com.silviatanas.project.contract.impl;
 
 import com.silviatanas.project.contract.api.Contract;
 import com.silviatanas.project.contract.api.ContractManagement;
+import com.silviatanas.project.contract.spi.ContractStorage;
 
 import java.util.List;
 import java.util.ServiceLoader;
@@ -10,7 +11,7 @@ import java.util.ServiceLoader;
  * Implementation for Contract management methods
  */
 public class ContractManagementImpl implements ContractManagement {
-    ServiceLoader<ContractManagement> serviceLoader = ServiceLoader.load(ContractManagement.class);
+    ServiceLoader<ContractStorage> serviceLoader = ServiceLoader.load(ContractStorage.class);
     List<Contract> contractList;
 
     @Override
