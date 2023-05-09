@@ -4,11 +4,14 @@ import com.silviatanas.project.contract.api.Contract;
 import com.silviatanas.project.contract.api.ContractManagement;
 
 import java.util.List;
+import java.util.ServiceLoader;
 
 /**
  * Implementation for Contract management methods
  */
 public class ContractManagementImpl implements ContractManagement {
+    ServiceLoader<ContractManagement> serviceLoader = ServiceLoader.load(ContractManagement.class);
+
     @Override
     public void addContract(Contract contract) {
 
