@@ -7,5 +7,5 @@ public interface ContractManagement {
     public void removeContract(int contractID);
     public List<Contract> listContracts();
     public Contract getContractByID(int contractID);
-    public void updateContract(Contract contract);
+    public void updateContract(int contractId, Contract contract);
 }

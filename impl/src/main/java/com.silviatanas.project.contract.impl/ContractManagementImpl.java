@@ -11,29 +11,30 @@ import java.util.ServiceLoader;
  */
 public class ContractManagementImpl implements ContractManagement {
     ServiceLoader<ContractManagement> serviceLoader = ServiceLoader.load(ContractManagement.class);
+    List<Contract> contractList;
 
     @Override
     public void addContract(Contract contract) {
-
+        contractList.add(contract);
     }
 
     @Override
     public void removeContract(int contractID) {
-
+        contractList.remove(contractID);
     }
 
     @Override
     public List<Contract> listContracts() {
-        return null;
+        return contractList;
     }
 
     @Override
     public Contract getContractByID(int contractID) {
-        return null;
+        return contractList.get(contractID);
     }
 
     @Override
-    public void updateContract(Contract contract) {
-
+    public void updateContract(int contractID, Contract contract) {
+        contractList.set(contractID, contract);
     }
 }
