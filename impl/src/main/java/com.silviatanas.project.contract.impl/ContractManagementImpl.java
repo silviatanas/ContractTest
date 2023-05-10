@@ -4,6 +4,7 @@ import com.silviatanas.project.contract.api.Contract;
 import com.silviatanas.project.contract.api.ContractManagement;
 import com.silviatanas.project.contract.spi.ContractStorage;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceLoader;
 
@@ -12,30 +13,32 @@ import java.util.ServiceLoader;
  */
 public class ContractManagementImpl implements ContractManagement {
     ServiceLoader<ContractStorage> serviceLoader = ServiceLoader.load(ContractStorage.class);
-    List<Contract> contractList;
+    ContractStorage storage = serviceLoader.iterator().next();
 
     @Override
     public void addContract(Contract contract) {
-        contractList.add(contract);
+        storage.storeContract(contract);
     }
 
     @Override
     public void removeContract(int contractID) {
-        contractList.remove(contractID);
+       storage.removeContract(contractID);
     }
 
     @Override
     public List<Contract> listContracts() {
-        return contractList;
+        return storage.listContracts();
     }
 
     @Override
     public Contract getContractByID(int contractID) {
-        return contractList.get(contractID);
+        return storage.getByID(contractID);
     }
 
     @Override
     public void updateContract(int contractID, Contract contract) {
-        contractList.set(contractID, contract);
+        storage.storeContract(storage.getByID(contractID));
+        // rewrite(?) the contract with this id
+        // store new contract under this id?
     }
 }

@@ -4,7 +4,6 @@ import java.util.Date;
 import java.util.List;
 
 public class Contract {
-    // test commit main
     private int contractID;
     private Date startDate;
     private Date endDate;
