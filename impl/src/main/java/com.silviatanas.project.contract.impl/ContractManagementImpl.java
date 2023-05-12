@@ -37,8 +37,7 @@ public class ContractManagementImpl implements ContractManagement {
 
     @Override
     public void updateContract(int contractID, Contract contract) {
+        storage.removeContract(contractID);
         storage.storeContract(storage.getByID(contractID));
-        // rewrite(?) the contract with this id
-        // store new contract under this id?
     }
 }

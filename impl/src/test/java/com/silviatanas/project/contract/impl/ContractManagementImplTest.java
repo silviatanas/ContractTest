@@ -2,51 +2,55 @@ package com.silviatanas.project.contract.impl;
 
 import com.silviatanas.project.contract.api.Contract;
 import com.silviatanas.project.contract.api.ContractManagement;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContractManagementImplTest {
-    // declare objects used for all tests (Contract, ContractManagement)
-    @BeforeAll
-    void init() {
-        // initialize previous objects
+    Contract c1;
+    Contract c2;
+    Contract c3;
+    ContractManagement mng;
+
+    @BeforeEach
+    public void init() {
+        c1 = new Contract();
+        c2 = new Contract();
+        c3 = new Contract();
+        mng = new ContractManagementImpl();
     }
 
 
     @Test
     void addGetContract() {
-        // Rough example:
-//        Contract c1 = new Contract();
-//        c1.setContractID(1);
-//        Contract c3 = new Contract();
-//        c3.setContractID(0);
-//        ContractManagement mgmt = new ContractManagementImpl();
-//        mgmt.addContract(c1);
-//        mgmt.addContract(c3);
-//        Contract c2 = mgmt.getContractByID(c3.getContractID());
-//        System.out.println(c3.getContractID());
-//        assertEquals(c2, c3);
-
-        // add 2 contracts with management
-        // get contracts and compare
+        c1.setContractID(1);
+        mng.addContract(c1);
+        c2 = mng.getContractByID(c1.getContractID());
+        assertEquals(c1, c2);
     }
 
     @Test
     void removeContract() {
-        // add and remove?
-        // assertNull
+        try {
+        mng.addContract(c1);
+        mng.removeContract(c1.getContractID());
+        assertNull(c1);
+        } catch ()
     }
 
     @Test
     void listContracts() {
-        // assertNotNull to check if the list is not empty?
+        mng.addContract(c1);
+        mng.addContract(c2);
+        assertNotNull(mng.listContracts());
     }
 
     @Test
     void updateContract() {
-        // assertEquals
-        // updating contract with parameters of another
+        c1.setContractID(1);
+        c2.setContractID(2);
+        mng.updateContract(c2.getContractID(), c1);
+        assertEquals(c1, c2);
     }
 }
