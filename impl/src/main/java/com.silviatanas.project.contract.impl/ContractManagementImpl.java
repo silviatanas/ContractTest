@@ -36,8 +36,12 @@ public class ContractManagementImpl implements ContractManagement {
     }
 
     @Override
-    public void updateContract(int contractID, Contract contract) {
-        storage.removeContract(contractID);
-        storage.storeContract(storage.getByID(contractID));
+    public void updateContract(Contract contract) {
+        if (storage.getByID(contract.getContractID()) == null) {
+            throw new IllegalStateException("No contract with this ID");
+        } else {
+            storage.removeContract(contract.getContractID());
+            storage.storeContract(contract);
+        }
     }
 }

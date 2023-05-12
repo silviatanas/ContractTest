@@ -7,17 +7,17 @@ public class Contract {
     private int contractID;
     private Date startDate;
     private Date endDate;
-    private String Customer;
+    private Customer customer;
     private List<Products> productsList;
 
     public Contract() {
     }
 
-    public Contract(int contractID, Date startDate, Date endDate, String customer, List<Products> productsList) {
+    public Contract(int contractID, Date startDate, Date endDate, Customer customer, List<Products> productsList) {
         this.contractID = contractID;
         this.startDate = startDate;
         this.endDate = endDate;
-        Customer = customer;
+        this.customer = customer;
         this.productsList = productsList;
     }
 
@@ -45,12 +45,12 @@ public class Contract {
         this.endDate = endDate;
     }
 
-    public String getCustomer() {
-        return Customer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomer(String customer) {
-        Customer = customer;
+    public void setCustomer(com.silviatanas.project.contract.api.Customer customer) {
+        this.customer = customer;
     }
 
     public List<Products> getProductsList() {
