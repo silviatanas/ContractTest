@@ -69,4 +69,9 @@ public class Contract {
         Contract contract = (Contract) o;
         return contractID == contract.contractID && Objects.equals(startDate, contract.startDate) && Objects.equals(endDate, contract.endDate) && Objects.equals(customer, contract.customer) && Objects.equals(productsList, contract.productsList);
     }
+
+    @Override
+    public int hashCode() {
+        return this.contractID;
+    }
 }
