@@ -2,6 +2,7 @@ package com.silviatanas.project.contract.api;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Contract {
     private int contractID;
@@ -59,5 +60,13 @@ public class Contract {
 
     public void setProductsList(List<Products> productsList) {
         this.productsList = productsList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contract contract = (Contract) o;
+        return contractID == contract.contractID && Objects.equals(startDate, contract.startDate) && Objects.equals(endDate, contract.endDate) && Objects.equals(customer, contract.customer) && Objects.equals(productsList, contract.productsList);
     }
 }
