@@ -2,9 +2,9 @@ package com.silviatanas.project.contract.impl;
 
 import com.silviatanas.project.contract.api.Contract;
 import com.silviatanas.project.contract.api.ContractManagement;
+import com.silviatanas.project.contract.api.NonExistentContractException;
 import com.silviatanas.project.contract.spi.ContractStorage;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ServiceLoader;
 
@@ -36,9 +36,9 @@ public class ContractManagementImpl implements ContractManagement {
     }
 
     @Override
-    public void updateContract(Contract contract) {
+    public void updateContract(Contract contract) throws NonExistentContractException {
         if (storage.getByID(contract.getContractID()) == null) {
-            throw new IllegalStateException("No contract with this ID");
+            throw new NonExistentContractException("No contract with this ID");
         } else {
             storage.removeContract(contract.getContractID());
             storage.storeContract(contract);

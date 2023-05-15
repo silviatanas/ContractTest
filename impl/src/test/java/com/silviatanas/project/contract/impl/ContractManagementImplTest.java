@@ -3,6 +3,7 @@ package com.silviatanas.project.contract.impl;
 import com.silviatanas.project.contract.api.Contract;
 import com.silviatanas.project.contract.api.ContractManagement;
 import com.silviatanas.project.contract.api.Customer;
+import com.silviatanas.project.contract.api.NonExistentContractException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -50,7 +51,11 @@ class ContractManagementImplTest {
         c2.setContractID(1);
         mng.addContract(c2);
         c2.setCustomer(cust);
-        mng.updateContract(c2);
+        try {
+            mng.updateContract(c2);
+        } catch (NonExistentContractException e) {
+            fail("Unexpected exception was thrown");
+        }
         assertEquals(c2, mng.getContractByID(c2.getContractID()));
     }
 }
