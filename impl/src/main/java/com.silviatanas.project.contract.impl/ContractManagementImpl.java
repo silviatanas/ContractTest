@@ -4,6 +4,8 @@ import com.silviatanas.project.contract.api.Contract;
 import com.silviatanas.project.contract.api.ContractManagement;
 import com.silviatanas.project.contract.api.NonExistentContractException;
 import com.silviatanas.project.contract.spi.ContractStorage;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.ServiceLoader;
@@ -12,8 +14,15 @@ import java.util.ServiceLoader;
  * Implementation for Contract management methods
  */
 public class ContractManagementImpl implements ContractManagement {
-    ServiceLoader<ContractStorage> serviceLoader = ServiceLoader.load(ContractStorage.class);
-    ContractStorage storage = serviceLoader.iterator().next();
+    private static final Logger LOGGER = LogManager.getLogger(ContractManagementImpl.class);
+    private ServiceLoader<ContractStorage> serviceLoader;
+    private ContractStorage storage;
+
+    public ContractManagementImpl() {
+        serviceLoader = ServiceLoader.load(ContractStorage.class);
+        storage = serviceLoader.iterator().next();
+        LOGGER.info(storage);
+    }
 
     @Override
     public void addContract(Contract contract) {

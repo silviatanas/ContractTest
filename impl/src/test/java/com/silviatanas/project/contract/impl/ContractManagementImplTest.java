@@ -4,6 +4,8 @@ import com.silviatanas.project.contract.api.Contract;
 import com.silviatanas.project.contract.api.ContractManagement;
 import com.silviatanas.project.contract.api.Customer;
 import com.silviatanas.project.contract.api.NonExistentContractException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +16,7 @@ class ContractManagementImplTest {
     Contract c2;
     ContractManagement mng;
     Customer cust;
+    static Logger logger;
 
     @BeforeEach
     public void init() {
@@ -21,6 +24,12 @@ class ContractManagementImplTest {
         c2 = new Contract();
         mng = new ContractManagementImpl();
         cust = new Customer();
+    }
+
+    @Test
+    void testMethod() {
+        logger = LogManager.getLogger(ContractManagementImplTest.class);
+        logger.info("test");
     }
 
 
