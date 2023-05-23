@@ -6,16 +6,20 @@ import java.util.Objects;
 
 public class Contract {
     private int contractID;
+    private static int nextContractID = 1;
     private Date startDate;
     private Date endDate;
     private Customer customer;
     private List<Product> productList;
 
     public Contract() {
+        this.contractID = nextContractID;
+        nextContractID++;
     }
 
-    public Contract(int contractID, Date startDate, Date endDate, Customer customer, List<Product> productList) {
-        this.contractID = contractID;
+    public Contract(Date startDate, Date endDate, Customer customer, List<Product> productList) {
+        this.contractID = nextContractID;
+        nextContractID++;
         this.startDate = startDate;
         this.endDate = endDate;
         this.customer = customer;
@@ -50,7 +54,7 @@ public class Contract {
         return customer;
     }
 
-    public void setCustomer(com.silviatanas.project.contract.api.Customer customer) {
+    public void setCustomer(Customer customer) {
         this.customer = customer;
     }
 

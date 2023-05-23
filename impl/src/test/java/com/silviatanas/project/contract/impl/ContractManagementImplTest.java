@@ -10,7 +10,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
-import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +18,7 @@ class ContractManagementImplTest {
     private Contract c2;
     private ContractManagement mng;
     private Customer cust;
+    private Date date;
 
     @BeforeEach
     public void init() {
@@ -26,6 +26,7 @@ class ContractManagementImplTest {
         c2 = new Contract();
         mng = new ContractManagementImpl();
         cust = new Customer();
+        date = new Date();
     }
 
     @Test
@@ -37,9 +38,14 @@ class ContractManagementImplTest {
 
     @Test
     void addGetContract() {
-        c1.setContractID(1);
         mng.addContract(c1);
         c2 = mng.getContractByID(c1.getContractID());
+        assertEquals(c1, c2);
+
+        c1.setStartDate(date);
+        assertNotEquals(c1, c2);
+
+        c2.setStartDate(date);
         assertEquals(c1, c2);
     }
 
@@ -63,7 +69,6 @@ class ContractManagementImplTest {
 
     @Test
     void updateContract() {
-        c2.setContractID(1);
         mng.addContract(c2);
         c2.setCustomer(cust);
         try {
