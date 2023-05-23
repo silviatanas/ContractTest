@@ -9,14 +9,16 @@ import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ContractManagementImplTest {
-    Contract c1;
-    Contract c2;
-    ContractManagement mng;
-    Customer cust;
-    static Logger logger;
+    private Contract c1;
+    private Contract c2;
+    private ContractManagement mng;
+    private Customer cust;
 
     @BeforeEach
     public void init() {
@@ -27,8 +29,8 @@ class ContractManagementImplTest {
     }
 
     @Test
-    void testMethod() {
-        logger = LogManager.getLogger(ContractManagementImplTest.class);
+    void setLogger() {
+        Logger logger = LogManager.getLogger(ContractManagementImplTest.class);
         logger.info("test");
     }
 
@@ -44,7 +46,11 @@ class ContractManagementImplTest {
     @Test
     void removeContract() {
         mng.addContract(c1);
-        mng.removeContract(c1.getContractID());
+        try {
+            mng.removeContract(c1.getContractID());
+        } catch (NonExistentContractException e) {
+            throw new RuntimeException(e);
+        }
         assertNull(mng.getContractByID(c1.getContractID()));
     }
 

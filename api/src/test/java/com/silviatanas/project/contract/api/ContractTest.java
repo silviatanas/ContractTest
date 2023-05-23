@@ -15,7 +15,7 @@ class ContractTest {
     Date date;
     Calendar cal;
     Customer cust;
-    List<Products> prod;
+    List<Product> prod;
 
     @BeforeEach
     public void init() {

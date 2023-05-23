@@ -5,15 +5,15 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ProductsTest {
-    Products p1;
-    Products p2;
+class ProductTest {
+    Product p1;
+    Product p2;
 
 
     @BeforeEach
     public void init() {
-        p1 = new Products();
-        p2 = new Products();
+        p1 = new Product();
+        p2 = new Product();
     }
 
     @Test

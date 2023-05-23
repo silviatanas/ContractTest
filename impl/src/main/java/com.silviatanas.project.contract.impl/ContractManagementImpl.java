@@ -30,8 +30,12 @@ public class ContractManagementImpl implements ContractManagement {
     }
 
     @Override
-    public void removeContract(int contractID) {
-       storage.removeContract(contractID);
+    public void removeContract(int contractID) throws NonExistentContractException {
+        if (storage.getByID(contractID) == null) {
+            throw new NonExistentContractException("No contract with this ID");
+        } else {
+            storage.removeContract(contractID);
+        }
     }
 
     @Override

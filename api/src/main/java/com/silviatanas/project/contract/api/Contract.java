@@ -9,17 +9,17 @@ public class Contract {
     private Date startDate;
     private Date endDate;
     private Customer customer;
-    private List<Products> productsList;
+    private List<Product> productList;
 
     public Contract() {
     }
 
-    public Contract(int contractID, Date startDate, Date endDate, Customer customer, List<Products> productsList) {
+    public Contract(int contractID, Date startDate, Date endDate, Customer customer, List<Product> productList) {
         this.contractID = contractID;
         this.startDate = startDate;
         this.endDate = endDate;
         this.customer = customer;
-        this.productsList = productsList;
+        this.productList = productList;
     }
 
     public int getContractID() {
@@ -54,12 +54,12 @@ public class Contract {
         this.customer = customer;
     }
 
-    public List<Products> getProductsList() {
-        return productsList;
+    public List<Product> getProductsList() {
+        return productList;
     }
 
-    public void setProductsList(List<Products> productsList) {
-        this.productsList = productsList;
+    public void setProductsList(List<Product> productList) {
+        this.productList = productList;
     }
 
     @Override
@@ -67,7 +67,7 @@ public class Contract {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Contract contract = (Contract) o;
-        return contractID == contract.contractID && Objects.equals(startDate, contract.startDate) && Objects.equals(endDate, contract.endDate) && Objects.equals(customer, contract.customer) && Objects.equals(productsList, contract.productsList);
+        return contractID == contract.contractID && Objects.equals(startDate, contract.startDate) && Objects.equals(endDate, contract.endDate) && Objects.equals(customer, contract.customer) && Objects.equals(productList, contract.productList);
     }
 
     @Override
