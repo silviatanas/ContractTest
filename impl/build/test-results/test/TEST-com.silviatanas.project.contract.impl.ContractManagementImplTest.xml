@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.silviatanas.project.contract.impl.ContractManagementImplTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2023-05-26T13:10:14" hostname="SAG-FCLD8C3" time="0.439">
+  <properties/>
+  <testcase name="listContracts()" classname="com.silviatanas.project.contract.impl.ContractManagementImplTest" time="0.424"/>
+  <testcase name="updateContract()" classname="com.silviatanas.project.contract.impl.ContractManagementImplTest" time="0.003"/>
+  <testcase name="setLogger()" classname="com.silviatanas.project.contract.impl.ContractManagementImplTest" time="0.003"/>
+  <testcase name="addGetContract()" classname="com.silviatanas.project.contract.impl.ContractManagementImplTest" time="0.002"/>
+  <testcase name="removeContract()" classname="com.silviatanas.project.contract.impl.ContractManagementImplTest" time="0.002"/>
+  <system-out><![CDATA[16:10:15.333 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@1849db1a
+16:10:15.351 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@2f7a7219
+16:10:15.355 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@71104a4
+16:10:15.356 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImplTest - test
+16:10:15.356 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImplTest - com.silviatanas.project.contract.api.Contract@5
+16:10:15.356 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImplTest - com.silviatanas.project.contract.api.Contract@6
+16:10:15.359 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@37ebc9d8
+16:10:15.362 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@1fc0053e
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

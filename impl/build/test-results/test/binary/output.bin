@@ -1,0 +1,8 @@
+ù16:10:15.333 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@1849db1a
+ù16:10:15.351 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@2f7a7219
+ú16:10:15.355 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@71104a4
+j16:10:15.356 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImplTest - test
+ï16:10:15.356 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImplTest - com.silviatanas.project.contract.api.Contract@5
+ï16:10:15.356 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImplTest - com.silviatanas.project.contract.api.Contract@6
+ù16:10:15.359 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@37ebc9d8
+ù16:10:15.362 [Test worker] INFO  com.silviatanas.project.contract.impl.ContractManagementImpl - com.softwareag.training.silvia.ContractStorageImpl@1fc0053e
