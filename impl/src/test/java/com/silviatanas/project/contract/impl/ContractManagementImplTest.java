@@ -56,6 +56,20 @@ class ContractManagementImplTest {
         c2.setCustomer(cust);
         c2.setProductsList(prodList);
         assertEquals(c1, c2);
+
+        c1 = new Contract();
+        c2 = new Contract();
+
+        c1.setStartDate(date);
+        c1.setEndDate(date);
+        c1.setCustomer(cust);
+        c1.setProductsList(prodList);
+
+        c2.setStartDate(date);
+        c2.setEndDate(date);
+        c2.setCustomer(cust);
+        c2.setProductsList(prodList);
+        assertNotEquals(c1, c2);
     }
 
     @Test
