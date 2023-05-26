@@ -2,24 +2,37 @@ package com.silviatanas.project.contract.api;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 public class Contract {
-    // test commit main
     private int contractID;
+    private static int nextContractID = 1;
     private Date startDate;
     private Date endDate;
-    private String Customer;
-    private List<Products> productsList;
+    private Customer customer;
+    private List<Product> productList;
 
     public Contract() {
+        this.contractID = nextContractID;
+        nextContractID++;
     }
 
-    public Contract(int contractID, Date startDate, Date endDate, String customer, List<Products> productsList) {
+    @Deprecated
+    public Contract(int contractID, Date startDate, Date endDate, Customer customer, List<Product> productList) {
         this.contractID = contractID;
         this.startDate = startDate;
         this.endDate = endDate;
-        Customer = customer;
-        this.productsList = productsList;
+        this.customer = customer;
+        this.productList = productList;
+    }
+
+    public Contract(Date startDate, Date endDate, Customer customer, List<Product> productList) {
+        this.contractID = nextContractID;
+        nextContractID++;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.customer = customer;
+        this.productList = productList;
     }
 
     public int getContractID() {
@@ -46,19 +59,32 @@ public class Contract {
         this.endDate = endDate;
     }
 
-    public String getCustomer() {
-        return Customer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomer(String customer) {
-        Customer = customer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public List<Products> getProductsList() {
-        return productsList;
+    public List<Product> getProductsList() {
+        return productList;
     }
 
-    public void setProductsList(List<Products> productsList) {
-        this.productsList = productsList;
+    public void setProductsList(List<Product> productList) {
+        this.productList = productList;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Contract contract = (Contract) o;
+        return contractID == contract.contractID && Objects.equals(startDate, contract.startDate) && Objects.equals(endDate, contract.endDate) && Objects.equals(customer, contract.customer) && Objects.equals(productList, contract.productList);
+    }
+
+    @Override
+    public int hashCode() {
+        return this.contractID;
     }
 }

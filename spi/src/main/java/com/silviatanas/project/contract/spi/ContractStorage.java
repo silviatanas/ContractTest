@@ -14,6 +14,7 @@ public interface ContractStorage {
      * @param contract
      */
     public void storeContract(Contract contract);
-    public List<Contract> listContract();
+    public void removeContract(int contractID);
+    public List<Contract> listContracts();
     public Contract getByID(int contractID);
 }

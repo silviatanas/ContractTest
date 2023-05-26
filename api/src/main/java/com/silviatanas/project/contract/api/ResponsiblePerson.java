@@ -1,5 +1,7 @@
 package com.silviatanas.project.contract.api;
 
+import java.util.Objects;
+
 public class ResponsiblePerson {
     private String name;
     private String email;
@@ -36,5 +38,19 @@ public class ResponsiblePerson {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ResponsiblePerson that = (ResponsiblePerson) o;
+        return Objects.equals(name, that.name) && Objects.equals(email, that.email) && Objects.equals(phone, that.phone);
+    }
+
+    @Override
+    public int hashCode() {
+        String id = name + email + phone;
+        return id.hashCode();
     }
 }
