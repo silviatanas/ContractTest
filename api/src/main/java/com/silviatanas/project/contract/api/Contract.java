@@ -17,6 +17,15 @@ public class Contract {
         nextContractID++;
     }
 
+    @Deprecated
+    public Contract(int contractID, Date startDate, Date endDate, Customer customer, List<Product> productList) {
+        this.contractID = contractID;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.customer = customer;
+        this.productList = productList;
+    }
+
     public Contract(Date startDate, Date endDate, Customer customer, List<Product> productList) {
         this.contractID = nextContractID;
         nextContractID++;

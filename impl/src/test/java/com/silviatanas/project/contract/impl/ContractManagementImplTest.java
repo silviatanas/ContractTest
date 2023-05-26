@@ -1,15 +1,14 @@
 package com.silviatanas.project.contract.impl;
 
-import com.silviatanas.project.contract.api.Contract;
-import com.silviatanas.project.contract.api.ContractManagement;
-import com.silviatanas.project.contract.api.Customer;
-import com.silviatanas.project.contract.api.NonExistentContractException;
+import com.silviatanas.project.contract.api.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +18,7 @@ class ContractManagementImplTest {
     private ContractManagement mng;
     private Customer cust;
     private Date date;
+    private List<Product> prodList;
 
     @BeforeEach
     public void init() {
@@ -27,12 +27,15 @@ class ContractManagementImplTest {
         mng = new ContractManagementImpl();
         cust = new Customer();
         date = new Date();
+        prodList = new ArrayList<>();
     }
 
     @Test
     void setLogger() {
         Logger logger = LogManager.getLogger(ContractManagementImplTest.class);
         logger.info("test");
+        logger.info(c1);
+        logger.info(c2);
     }
 
 
@@ -43,9 +46,15 @@ class ContractManagementImplTest {
         assertEquals(c1, c2);
 
         c1.setStartDate(date);
+        c1.setEndDate(date);
+        c1.setCustomer(cust);
+        c1.setProductsList(prodList);
         assertNotEquals(c1, c2);
 
         c2.setStartDate(date);
+        c2.setEndDate(date);
+        c2.setCustomer(cust);
+        c2.setProductsList(prodList);
         assertEquals(c1, c2);
     }
 
